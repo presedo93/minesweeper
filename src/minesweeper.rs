@@ -76,9 +76,9 @@ impl Minesweeper {
         let width = self.width;
         let height = self.height;
 
-        return (x.max(1) - 1..=(x + 1).min(width - 1))
+        (x.max(1) - 1..=(x + 1).min(width - 1))
             .flat_map(move |i| (y.max(1) - 1..=(y + 1).min(height - 1)).map(move |j| (i, j)))
-            .filter(move |&pos| pos != (x, y));
+            .filter(move |&pos| pos != (x, y))
     }
 
     pub fn neighbours_mines(&self, pos: Position) -> u8 {
